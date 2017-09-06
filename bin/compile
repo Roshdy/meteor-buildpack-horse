@@ -135,9 +135,9 @@ fi
 # Remove the Android platform if we don't support the --server-only flag
 # (Meteor 1.2 and below).  iOS platform gets ignored properly.
 if [ -z "$SERVER_ONLY_FLAG" ]; then
-  echo "-----> Attempting to remove android platform."
-  METEOR remove-platform android || true
-  echo "-----> Moving on."
+  #echo "-----> Attempting to remove android platform."
+  #METEOR remove-platform android || true
+  #echo "-----> Moving on."
 fi
 
 # Identify the npm/node to use. We need to copy the node binary out to get the
@@ -182,7 +182,7 @@ if [ -n "${BUILDPACK_PRELAUNCH_METEOR+1}" ]; then
   echo "-----> BUILDPACK_PRELAUNCH_METEOR: Pre-launching meteor to build packages assets"
   # Remove the Android platform because it fails due to the Android tools not
   # being installed, but leave the iOS platform because it's ignored.
-  METEOR remove-platform android || true
+  #METEOR remove-platform android || true
   HOME=$METEOR_DIR timeout -s9 60 $METEOR_DIR/.meteor/meteor --settings settings.json || true
 fi
 
